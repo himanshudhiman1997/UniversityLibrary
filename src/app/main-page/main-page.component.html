@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <label>Enter a Name</label>
+      <input type="text" [(ngModel)]="studentname">
+    </div>
+    <div class="col-md-6">
+      <button [disabled]="buttonstate" (click)="clickSubmit()">Submit</button>
+      <br><br><br>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="row" style="margin:20px">
+    <div class="col-md-12"> <h4>The selected book name is {{selectedBookName}}</h4></div>
+    <div *ngIf="showTable" class="row">
+    <div class="col-md-12">
+      <app-datatable [childBooks] = "parentBooks" (selectedBook) = "bookSelected($event)"></app-datatable>
+    </div>
+    </div>
+  <button (click)="toogleTableVisibility()">Show/Hide Table</button>
+  </div>
+</div>
